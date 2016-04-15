@@ -28,18 +28,16 @@ $(".gooey-menu-item").click(function(){
                 }
 4.将div改成js
 <div class="number" id="weekNumber">
-                   <a class="pre" href="#"><img src="left.png" width="40" height="40" /></a>
+                   <a class="pre" href="#"></a>
                     第三周
-                    <a class="next" href="#">
-                        <img src="left 2.png" width="40" height="40" />
+                    <a class="next" href="#"> 
                     </a>
                 </div>
 
 
- titleChar="<a class=\"pre\" href=\""+preLink+"\"><img src=\"left.png\" width=\"40\" height=\"40\" /></a>"+
+ titleChar="<a class=\"pre\" href=\""+preLink+"\"></a>"+
                     "第"+data.weekNumber+"周"+
                     "<a class=\"next\" href=\""+nextLink+"\">"+
-                    "<img src=\"left 2.png\" width=\"40\" height=\"40\" />"+
                     "</a>";
 $('#weekNumber').append(titleChar);
 
