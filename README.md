@@ -1,15 +1,18 @@
 课表-企业号
 
 1.获取文本长度
+
 	var a = $(this).context.innerText.length;
 
 
 2.改变表格第一列样式
+
 	$("tr").each(function(){
            $(this).find("td").first().css("color","black");
            });
 
 3.点击图片更换背景并用cookie保存
+
 	$(".gooey-menu-item").click(function(){
                 var temp=$(this).css('backgroundImage');   
                 
@@ -27,6 +30,7 @@
                     $(".blacktab").css({"backgroundImage":"url("+tem+")"})
                 }
 4.将div改成js
+	
 		<div class="number" id="weekNumber">
                   <a class="pre" href="#"></a>
                     	第三周
