@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑", Verdana, sans-serif;
+}
+
+html {
+    /*for 320px screen*/
+    font-size: 100px;
+    font-family: Simhei serif;
+}
+
+@media (width: 375px) {
+    html {
+        /*117.1875   ip6*/
+        font-size: 117.1875px;
+    }
+}
+
+@media (width: 414px) {
+    html {
+        /*129.375   ip6+ */
+        font-size: 129.375px;
+    }
+}
+
+@media (width: 360px) {
+    html {
+        /*  112.5 bb z30, nexus 5 ,gs 4, sony z1*/
+        font-size: 112.5px;
+    }
+}
+
+@media (width: 384px) {
+    html {
+        /*  bb z10 , nexus 4*/
+        font-size: 120px;
+    }
+}
+
+@media (width: 400px) {
+    html {
+        /* meizu 2 note*/
+        font-size: 125px;
+    }
+}
+
+@media (width: 432px) {
+    html {
+        /* meizu 3、 4?*/
+        font-size: 135px;
+    }
+}
+
+@media (width: 424px) {
+    html {
+        /*  132.5 LG Optimus LTE */
+        font-size: 132.5px;
+    }
+}
+
+@media (width: 480px) {
+    html {
+        /* sony sola ,sony U*/
+        font-size: 150px;
+    }
+}
+
+@media (width: 1024px) {
+    html {
+        /* ipad landscape*/
+        font-size: 320px;
+    }
+}
+
+@media (width: 768px) {
+    html {
+        /* ipad portrait*/
+        font-size: 240px;
+    }
+}
+
+@media (width: 602px) {
+    html {
+        /* samsung gt-n5110 portrait*/
+        font-size: 188.125px;
+    }
+}
+#tan{
+    position:fixed;
+    top:2rem;
+    left:0rem;
+    margin:0.2rem;
+    padding:0.3rem 0.1rem;
+    z-index:30;
+    font-size:0.18rem;
+    line-height:0.6rem;
+    background:rgba(255,255,255,0.8);
+}
+#tan img{
+    float:left;
+    margin-right: 0.1rem;
+}
+
+.list {
+    color:rgb(102,102,102);
+    border-right:1px solid rgba(178,178,178,0.6);
+    border-top:1px solid rgba(178,178,178,0.6);
+    border-radius:0;
+    background: rgba(255, 255, 255, 0.5);
+    font-size:0.12rem;
+}
+
+#classTable {
+    margin-top: 0.6rem;
+    font-size: 0.1rem;
+    /*font-size:10px;*/
+    color: rgb(51,51,51);
+}
+
+#classTable:before {
+    content: ' ';
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+}
+td {
+    border:1px solid rgba(255, 255, 255, 0.1);
+    height: 0.5rem;
+    table-layout: fixed;
+
+    text-align: center;
+    padding: 1px;
+    border-radius: 6px;
+}
+
+
+/*.dayday {
+    
+    position: fixed;
+    top:0.39rem;
+    left: 0px;
+     width: 100%;
+    z-index: 100;
+    font-size: .12rem;
+    color: rgb(102,102,102);
+    padding-left: 5.8%;
+    background: rgba(255, 255, 255, 0.5);
+    border-bottom:0.01rem solid rgba(178, 178, 178, 0.6);
+}*/
+.dyaa{
+     position: fixed;
+    top:0.38rem;
+    left: 0px;
+}
+.dya{
+    height:0.2rem;
+    text-align: center;
+    font-size: .12rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-left:0.01rem solid rgba(178, 178, 178, 0.6);
+    color:rgb(102,102,102);
+    border-radius:0;
+}
+
+/*.day {
+    float:left;
+    width: 13.2%;
+    border-left:0.01rem solid rgba(178, 178, 178, 0.6);
+    border-right:none;
+   text-align: center;
+   padding:6px 0;
+   border-bottom:none;
+}*/
+
+.header {
+    position: fixed;
+    top: 0px;
+    width:100%;
+    display:inline-block;
+    text-align: center;
+    padding: 0.1rem 0 0.1rem 0;
+    font-size:0.15rem;
+    /*font-size:30px;*/
+    color:rgb(20,155,245);
+    background-color: #fff;
+     border-bottom:1px solid rgba(178,178,178,0.6);
+     z-index: 500;
+}
+a{
+    width:2rem;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.next {
+    margin-left: 0.2rem;
+    width:2rem;
+}
+
+.pre {
+    margin-right: 0.2rem;
+    width:2rem;
+}
+
+.default:before {
+    background: url(../images/1.jpg) center 0 no-repeat;
+}
+
+.bg2:before{
+    background: url(../images/1.jpg) center 0 no-repeat;
+}
+
+.bg3:before{
+    background: url(../images/2.jpg) center 0 no-repeat;
+}
+.bg4:before{
+    background: url(../images/4.jpg) center 0 no-repeat;
+}
+.bg5:before{
+    background: url(../images/5.jpg) center 0 no-repeat;
+}
+.bg6:before{
+    background: url(../images/6.jpg) center 0 no-repeat;
+}
+.bg7:before{
+    background: url(../images/7.jpg) center 0 no-repeat;
+}
+.bg8:before{
+    background: url(../images/8.png) center 0 no-repeat;
+}
+
+
+.one {
+    background-color: rgba(126, 206, 244,0.72);
+}
+
+.two {
+    background-color: rgba(172, 213, 152, 0.72);
+}
+
+.three {
+    background-color: rgba(76, 213, 255, 0.72);
+}
+
+.four {
+    background-color: rgba(255, 228, 189, 0.72);
+}
+
+.five {
+    background-color: rgba(164, 150, 214, 0.72);
+}
+
+.six {
+    background-color: rgba(138, 230,223, 0.72);
+}
+
+.seven {
+    background-color: rgba(240, 168, 235, 0.72);
+}
+
+.eight {
+    background-color: rgba(242, 174, 145, 0.72);
+}
+
+.nine {
+    background-color: rgba(250, 205, 137, 0.72);
+}
+
+.ten {
+    background-color: rgba(255, 168, 197, 0.72);
+}
+
+.to {
+    background-color: rgba(141, 177, 226, 0.72);
+}
+
+.tw {
+    background-color: rgba(242, 156, 159, 0.72);
+}
+
+.tt {
+    background-color: rgba(132, 219, 173, 0.72);
+}
+
+.tf {
+    background-color: rgba(255, 246, 127, 0.72);
+}
+
+.tfi {
+    background-color: rgba(183, 183, 183, 0.72);
+}
+#gooeySVG0{
+    width: 0;
+    height: 0;
+}

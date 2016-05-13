@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>我的课表</title>
+<link rel="stylesheet" href="res/css/index.css">
+<link rel="stylesheet" href="res/css/gooey.min.css">
+
+
+<script type="text/javascript" src="res/js/jquery.js"></script>
+<script src="res/js/gooey.min.js"></script>
+<script src="res/js/index.js"></script>
+<script src="res/js/jquery.cookie.js"></script>
+
+
+</head>
+
+<body>
+	<!-- <div id="tan"><img src="images/icon.png" width="5%"/>未找到当前学期课程</div> -->
+	<div id="body_wrap">
+
+		<div class="header">
+			<div class="number" id="weekNumber">
+				<!-- <a class="pre" href="#"><img src="left.png" width="40" height="40" /></a>
+                    第三周
+                    <a class="next" href="#">
+                        <img src="left 2.png" width="40" height="40" />
+                    </a> -->
+			</div>
+		</div>
+
+		<div class="week">
+			<!--  <div class="dayday">
+            <div class="day">周一</div>
+            <div class="day">周二</div>
+            <div class="day">周三</div>
+            <div class="day">周四</div>
+            <div class="day">周五</div>
+            <div class="day">周六</div>
+            <div class="day">周日</div>
+          </div> -->
+			<table class="dyaa" cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td class="dya" width="2%"
+						style="color:transparent;border-left:1px solid transparent;">3a</td>
+					<td class="dya" width="14%">周一</td>
+					<td class="dya" width="14%">周二</td>
+					<td class="dya" width="14%">周三</td>
+					<td class="dya" width="14%">周四</td>
+					<td class="dya" width="14%">周五</td>
+					<td class="dya" width="14%">周六</td>
+					<td class="dya" width="14%">周日</td>
+				</tr>
+			</table>
+
+			<table class="default" id="classTable" cellspacing="1">
+			</table>
+		</div>
+
+		<div class="wrap">
+			<nav id="gooey-v" class="navimenu">
+				<input type="checkbox" class="menu-open" name="menu-open4"
+					id="menu-open4"> <label class="open-button"
+					for="menu-open4" id="mycircle"> </label>
+				<div class="gooey-menu-item"
+					style="background-image: url(res/images/1.jpg)"></div>
+				<div class="gooey-menu-item"
+					style="background-image: url(res/images/2.jpg)"></div>
+				<div class="gooey-menu-item"
+					style="background-image: url(res/images/4.jpg)"></div>
+				<div class="gooey-menu-item"
+					style="background-image: url(res/images/5.jpg)"></div>
+				<div class="gooey-menu-item"
+					style="background-image: url(res/images/6.jpg)"></div>
+				<div class="gooey-menu-item"
+					style="background-image: url(res/images/7.jpg)"></div>
+				<div class="gooey-menu-item"
+					style="background-image: url(res/images/8.png)"></div>
+			</nav>
+		</div>
+
+	</div>
+</body>
+<script>
+	// function createView(data) {
+		$.getJSON('callback.js',function(data){
+		var jieArray = new Array();
+		var charArray = new Array(11);
+		for (var i = 0; i < 11; i++) {
+			jieArray[i] = new Array();
+			for (var j = 0; j < 7; j++) {
+				jieArray[i][j] = '<td width=\"14%\"></td>';
+			}
+		}
+		$.each(data.data, function(i, v) {
+			var classNode = v.classNode - 1;
+			var weekNode = v.week - 1;
+			var className;
+			var a = v.courseContent.length;
+
+			switch (true) {
+			case (a >= 35):
+				className = "one";
+				break;
+			case (a >= 30 && a < 35):
+				className = "ten";
+				break;
+			case (a >= 25 && a < 30):
+				className = "to";
+				break;
+			case (a >= 23 && a < 25):
+				className = "tw";
+				break;
+			case (a == 22):
+				className = "tt";
+				break;
+			case (a == 21):
+				className = "tf";
+				break;
+			case (a == 20):
+				className = "tfi";
+				break;
+			case (a == 19):
+				className = "two";
+				break;
+			case (a == 18):
+				className = "three";
+				break;
+			case (a == 17):
+				className = "four";
+				break;
+			case (a == 16):
+				className = "five";
+				break;
+			case (a == 15):
+				className = "six";
+				break;
+			case (a == 14):
+				className = "seven";
+				break;
+			case (a > 12 && a <= 14):
+				className = "eight";
+				break;
+			case (a > 10 && a <= 12):
+				className = "nine";
+				break;
+			default:
+				break;
+			}
+			//改
+			if (jieArray[classNode][weekNode].indexOf('class') < 0) {
+				jieArray[classNode][weekNode] = "<td width=\"14%\" rowspan=\""
+						+ v.classHourLength + "\" class=\"" + className + "\">"
+						+ v.courseContent + "</td>";
+			} else {
+				var exist = jieArray[classNode][weekNode];
+				jieArray[classNode][weekNode] = exist.substring(0,
+						exist.length - 5)
+						+ "<br><br>"
+						+ v.courseContent
+						+ "<br>"
+						+ exist.substring(exist.length - 5, exist.length);
+			}
+
+			for (var k = 1; k < v.classHourLength; k++) {
+				jieArray[classNode + k][weekNode] = "";
+			}
+			console.log(jieArray[classNode][weekNode]);
+		});
+		for (i = 0; i < 11; i++) {
+			charArray[i] = "<tr><td width=\"2%\" class=\"list\">" + (i + 1)
+					+ "</td>" + jieArray[i].join(' ') + "</td>";
+
+		}
+		$("#classTable").html(charArray.join(''));
+		var titleChar;
+		var preLink = "index.html?weekNumber=" + (data.weekNumber - 1);
+		var nextLink = "index.html?weekNumber=" + (data.weekNumber + 1);
+		if (data.weekNumber == 1) {
+			preLink = "#";
+		} else if (data.weekNumber == data.maxWeekNumber) {
+			nextLink = "#";
+		}
+		if (data.data != 0) {
+			titleChar = "<a class=\"pre\" href=\""+preLink+"\"><img src=\"res/images/left.png\" width=\"3%\" /></a>"
+					+ "第"
+					+ data.weekNumber
+					+ "周"
+					+ "<a class=\"next\" href=\""+nextLink+"\">"
+					+ "<img src=\"res/images/left 2.png\" width=\"3%\"/>"
+					+ "</a>";
+		} else {
+			titleChar = "第" + data.weekNumber + "周";
+			var kuang = "<div id=\"tan\"><img src=\"res/images/icon.png\" width=\"20%\"/>"
+					+ "抱歉，未找到当前课程" + "</div>";
+			$("body").append(kuang);
+		}
+		$('#weekNumber').append(titleChar);
+	});
+
+	// createView(${(student)?if_exists});
+</script>
+
+</html>
